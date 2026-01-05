@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kabaddi Junction Scoreboard</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+}
+
+#scorebar{
+  position: fixed;
+  top:20px;
+  right:40px;
+  background:#000;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:10px;
+  display:flex;
+  gap:30px;
+  font-size:24px;
+}
+
+.team{
+  white-space: nowrap;
+}
+
+.score{
+  color:#ffd700;
+  font-weight:bold;
+  margin-left:6px;
+}
+
+#control{
+  position: fixed;
+  bottom:20px;
+  left:20px;
+  background:#ffffff;
+  padding:12px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+button{
+  font-size:18px;
+  margin:4px;
+  padding:6px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scorebar">
+  <div class="team">SHRI BER SAHI <span class="score" id="a">0</span></div>
+  <div class="team">BABA KHAN <span class="score" id="b">0</span></div>
+</div>
+
+<div id="control">
+  <b>Team A</b><br>
+  <button onclick="add('a',1)">+1</button>
+  <button onclick="add('a',1.5)">+1.5</button>
+  <button onclick="add('a',2.5)">+2.5</button>
+  <br><br>
+  <b>Team B</b><br>
+  <button onclick="add('b',1)">+1</button>
+  <button onclick="add('b',1.5)">+1.5</button>
+  <button onclick="add('b',2.5)">+2.5</button>
+</div>
+
+<script>
+let scoreA = 0;
+let scoreB = 0;
+
+function add(team, value){
+  if(team === 'a'){
+    scoreA += value;
+    document.getElementById('a').innerText = scoreA;
+  }
+  if(team === 'b'){
+    scoreB += value;
+    document.getElementById('b').innerText = scoreB;
+  }
+}
+</script>
+
+</body>
+</html>
